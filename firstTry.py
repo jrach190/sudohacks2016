@@ -30,7 +30,7 @@ drone.stop()                   # Drone stops
 time.sleep(2)
 
 drone.setSpeed(1.0)            # Sets default moving speed to 1.0 (=100%)
-print drone.setSpeed()         # Shows the default moving speed
+print(drone.setSpeed())        # Shows the default moving speed
 
 drone.turnLeft()               # Drone moves full speed to the left...
 time.sleep(2)                  # ... for two seconds
