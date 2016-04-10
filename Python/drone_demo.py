@@ -18,9 +18,11 @@ class DroneDemo:
     def flyDrone(self):
         end = False
         print "Battery: "+str(drone.getBattery()[0])+"%  "+str(drone.getBattery()[1])
-        drone.takeoff()
-        time.sleep(7.5)
-
+        drone.takeoff() #tell drone to take off
+        time.sleep(7.5) #wait for drone to take off before giving more instructions
+        
+        drone.move(0,0,.5,0) #move the drone up at half speed
+        time.sleep(6) #let drone increase height for 6 seconds
 
 
 
