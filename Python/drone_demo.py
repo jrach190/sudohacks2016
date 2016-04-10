@@ -1,36 +1,49 @@
 import time
 import ps_drone
+from pubnub import Pubnub
+
+global msg
 
 
 
-class DroneDemo:
-    
-    #Initialize drone
-    drone = ps_drone.Drone()
-    
-    #Initialize DroneDemo, startup drone, tell it to take off and fly
-    def __init__(self, selflocationx, selflocationy,targetlocationx,targetlocationy):
-        this.selflocationx = selflocationx
-        this.selflocationy = selflocationy
-        this.targetlocationx=targetlocationx
-        this.targetlocationy=targetlocationy
-        drone.startup()
-        drone.reset()
-        self.flyDrone()
-        self.doggyNod()
+#Initialize drone
+drone = ps_drone.Drone()
 
-    def flyDrone(self):
-        end = False
-        print "Battery: "+str(drone.getBattery()[0])+"%  "+str(drone.getBattery()[1])
-        drone.takeoff() #tell drone to take off
-        time.sleep(7.5) #wait for drone to take off before giving more instructions
-        
-        drone.move(0,0,.5,0) #move the drone up at half speed
-        time.sleep(6) #let drone increase height for 6 seconds
-
-        #location
+drone.startup()         #connect to drone
+drone.reset()           #reset drone to good state after poor condition event
+time.sleep(2)           #wait for reset to complete before allowing other commands
+print "Drone initialized"
 
 
+#initialize pubnub
+pubnub = Pubnub(publish_key='demo', subscribe_key='sub-c-312e2a08-fee2-11e5-9086-02ee2ddab7fe')
 
 
+def _callback(message, channel):
+    msg = message #allow message variable to be used outside callback if needed
+    #print(message)
+    if msg == "ret":
+        print 'Drone returning home'
+        """drone.move(0,0,-.5,0) #reverse height increase
+        time.sleep(4)           #lower height for 4 seconds
 
+        drone.land()
+        exit()"""
+
+    elif msg != "" :
+        print 'Drone leaving base'
+        """drone.takeoff()         #launch drone
+        time.sleep(7.5)         #wait 7.5s for drone to take off before executing commands
+
+        drone.move(0,0,.5,0)    #move drone up at half speed
+        time.sleep(4)           #move drone up for 4 seconds
+
+        drone.hover()           #hover drone over drop site"""
+
+    else:
+        print (message)
+
+def _error(message):
+    print(message)
+
+pubnub.subscribe(channels="demo", callback=_callback, error=_error)
