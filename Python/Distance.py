@@ -17,7 +17,7 @@ def longtitude(address):
     return location.longitude
 
 
-def difference(n1, n2):
+def differenceany(n1, n2):
     difference = n2 - n1
     return difference
 
@@ -27,9 +27,7 @@ def vector(xvector, yvector):
     return distance
 
 
-def conversion(address):
-    geolocator = Nominatim()
-    location = geolocator.geocode(address)
+def conversion(latitudepub, longitudepub):
     origin = (0.0, 0.0)
-    final = (location.latitude, location.longitude)
+    final = (latitudepub, longitudepub)
     return vincenty(origin, final).miles
