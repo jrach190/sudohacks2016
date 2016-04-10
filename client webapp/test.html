@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+      <script type="text/javascript">
+        var placeName = "Got variable";
+        var map;
+        var infowindow;
+
+        function initMap() {
+          var pyrmont = {lat: 29.037579, lng: -81.301801};
+
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 13
+          });
+
+          infowindow = new google.maps.InfoWindow();
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch({
+            location: pyrmont,
+            radius: 1500,
+            type: ['pharmacy']
+          }, callback);
+            
+            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+          var beachMarker = new google.maps.Marker({
+            position: {lat: 29.037579, lng: -81.301801},
+            map: map,
+            icon: image
+          });
+        }
+
+        function callback(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+            }
+          }
+        }
+
+        function createMarker(place) {
+          var placeLoc = place.geometry.location;
+          var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+          });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+          });
+        }
+          
+          
+      </script>
+        <!-- Replace the value of the key parameter with your own API key. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHMDmu75qgY3tduF05BC16KYnDiKj1SLw&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Drone Drop</title>
+
+    
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+    <style>
+       .mi {
+            color: white;
+        }
+    
+    /* TEXT */
+        /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }
+        
+    /* EMAIL */
+        /* label focus color */
+   .input-field input[type=email]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=email]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=email].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=email].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+        
+    /* PASSWORD */
+        /* label focus color */
+   .input-field input[type=password]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=password]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=password].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=password].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+</style>
+  
+</head>
+  <nav class="blue lighten-2" role="navigation">
+    <div class="nav-wrapper container white-text">
+      
+      <ul class="right hide-on-med-and-down white-text">
+        <li><a class="mi" href="#">Home</a></li>
+        <li><a class="mi" href="#">Order</a></li>
+        <li><a class="mi" href="#">FAQ</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a class="nav" href="#" >Home</a></li>
+        <li><a class="nav" href="#">Order</a></li>
+        <li><a class="nav" href="#">FAQ</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+    <br>
+    <div class="container">
+        <!-- CARD ONE -->
+        <div class="row">
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content black-text">
+                <span class="card-title">Step 1: Enter your personal information</span>
+                      <p>We will take your personal information and, with your driver's license, verify your prescription and ensure that you are who you say you are.</p><br>
+                
+                        <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <input id="first_name" type="text" class="validate">
+                              <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <input id="last_name" type="text" class="validate">
+                              <label for="last_name">Last Name</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input  id="email" type="text" class="validate">
+                              <label for="disabled">Disabled</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="password" type="password" class="validate">
+                              <label for="password">Password</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                            </div>
+                          </div>
+                        </form>
+                      </div>                    
+            </div>
+          </div>
+        
+      </div>
+        
+        <!-- CARD TWO -->
+        
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content black-text">
+                
+                <span class="card-title">Step 2: Add your drivers license</span>
+                      <p>We will use this to hold you accountable for any damage done to the drone, and to verify your identity with the pharmacy.</p><br>
+                        <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <div class="file-field input-field">
+                              <div class="btn blue lighten-2">
+                                <span>File</span>
+                                <input type="file" multiple>
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                              </div>
+                            </div>
+                            </div>
+                            </div>
+                        </form>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        <!-- CARD THREE -->
+        <div class="row">
+        <div class="col s12 m6 l12">
+          <div class="card">
+            <div class="card-content black-text">
+                <span class="card-title">Step 3: Enter your Rx Information</span>
+                      <p>We will contact your pharmacy with your Rx number to ensure that you are able to receive your prescription refill..</p><br>
+                
+                        <div class="row">
+                        <form class="col s12">
+                        <div id="map"></div>
+                        
+                            
+                            
+                            
+                          <div class="row">
+                            <div class="input-field col s6 m12 l12">
+                              <iframe id="mapView" height = "250px" width="100%" src="test.html"></iframe>
+                                <script>
+                                var name = document.getElementById("mapView").contentWindow.placeName;
+                                console.log(name);
+                                </script>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="password" type="password" class="validate">
+                              <label for="password">Password</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      
+            </div>
+            <div class="card-action blue-text">
+              <a class="blue-text" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+  </div>
+        
+        
+        
+        
+    </div>
+
+  <footer class="page-footer blue lighten-2">
+   <footer>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="white-text text-lighten-3" href="http://materializecss.com">Drone Drop Technology Inc.</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+ 
+
+  </body>
+</html>
