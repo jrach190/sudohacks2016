@@ -9,11 +9,15 @@ class DroneDemo:
     drone = ps_drone.Drone()
     
     #Initialize DroneDemo, startup drone, tell it to take off and fly
-    def __init__(self, location):
-        this.location = location
+    def __init__(self, selflocationx, selflocationy,targetlocationx,targetlocationy):
+        this.selflocationx = selflocationx
+        this.selflocationy = selflocationy
+        this.targetlocationx=targetlocationx
+        this.targetlocationy=targetlocationy
         drone.startup()
         drone.reset()
         self.flyDrone()
+        self.doggyNod()
 
     def flyDrone(self):
         end = False
@@ -23,6 +27,8 @@ class DroneDemo:
         
         drone.move(0,0,.5,0) #move the drone up at half speed
         time.sleep(6) #let drone increase height for 6 seconds
+
+        #location
 
 
 
