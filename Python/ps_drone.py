@@ -393,6 +393,7 @@ class Drone(object):
 		except:	speed=self.__speed
 		self.move(0.0,0.0, self.__checkSpeedValue(speed),0.0)
 
+#modified to include asterisk so function will perform
 	def moveDown(self,*args):
 		try:	speed=args[0]
 		except:	speed=self.__speed
