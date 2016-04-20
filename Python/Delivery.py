@@ -17,7 +17,6 @@ authenticate = False
 drone.takeoff()                 # the drone begins its flight
 time.sleep(7.5)                 # command continues for 7.5 seconds
 
-while(authenticate == False):
+while authenticate == False:
 
-
-drone.land()                    # The drone lands
+    drone.land()                    # The drone lands
